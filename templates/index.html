@@ -6,9 +6,6 @@
 
 {% block body %}
 <style>
-.site-small-desc, .site-publisher{
-    min-height: 347px;
-}
 </style>
             <div class="container">
 
@@ -29,7 +26,7 @@
                                                     <div class="textwidget">
                                                         <div class="ts-nominees ts-nominees-featured row">
                                                             <div class="col-md-7">
-                                                                <div class="award-image entry">
+                                                                <div class="award-image entry" style="height: 500px;>
                                                                     <a href="{{url_for('nominee_category_detail', name=winner.name)}}" title="">
                                                                         <img src="{{url_for('get_upload', filename=winner.image_url)}}"
                                                                             alt="" class="img-responsive">
@@ -44,8 +41,8 @@
                                                             </div><!-- end col -->
 
                                                             <div class="col-md-5">
-                                                                <div class="award-details awards-wrapper">
-                                                                    <div class="site-publisher clearfix">
+                                                                <div class="award-details awards-wrapper" style="">
+                                                                    <div class="site-publisher clearfix" >
                                                                         <div class="corner-ribbon top-right"><a
                                                                              href="{{url_for('nominee_category_detail', name=winner.name)}}"><i
                                                                                     class="flaticon-heart"></i></a>
@@ -54,23 +51,22 @@
                                                                             width="60" height="60" alt="awards"
                                                                             class="avatar avatar-60 wp-user-avatar wp-user-avatar-60 alignnone photo" />
                                                                         <a href="#" title="">
-                                                                            <h4>{{winner.category.name}}
-                                                                                <small>from</small> <span>U.S.A.</span>
+                                                                            <h4> Award Category
                                                                             </h4>
                                                                         </a>
-                                                                        <small>Web Agency INC.</small>
+                                                                        <small>{{winner.category.name}}</small>
                                                                     </div><!-- end publisher -->
 
-                                                                                                                                        <div class="site-publisher clearfix">
+                                                                                                                                        <div class="site-publisher clearfix" style="min-height: 382px;max-height: 382px;">
                                                                         <h4><a href="{{url_for('nominee_category_detail', name=winner.name)}}"
                                                                                                                       title="">{{winner.name}}
                                                                                &nbsp;&nbsp;<small>Learn
                                                                                     More</small></a></h4>
                                                                         <p> 
-                                                                        {% if winner.description|length < 100 %}
+                                                                        {% if winner.description|length < 500 %}
                                                                                                                       {{winner.description}}
-{% else %}
-                                                                                                                                               {{winner.description}}
+                                                                                                                      {% else %}
+                                                                                                                                               {{winner.description[:501]}}
                                                                                                                       <a class="read-more" href="{{url_for('winner')}}">&#8230;</a>
                                                                                                                                                {% endif %}
                                                                         </p>
@@ -169,8 +165,7 @@
                                                     <div class="textwidget">
                                                         <h3 class="ts-heading ts-heading-style-2 ts-heading-align-left"
                                                             style="margin-top:0px; margin-bottom:0px; font-size: 55px; text-transform: capitalize; color: #ffffff; letter-spacing: 0px; ">
-                                                            <span class="ts-heading-inner">Chosen by the best judges in
-                                                                the world</span></h3>
+                                                            <span class="ts-heading-inner">Meet Our Awesome Organisers</span></h3>
                                                     </div>
                                                 </div>
                                                 <div id="panel-57-1-0-1"
@@ -191,7 +186,7 @@
                                                             {% for judge in judges %}
                                                             <div class="col-md-6 wow fadeIn" data-wow-duration="1s"
                                                                 data-wow-delay="0.8s">
-                                                                <div class="award-image entry">
+                                                                <div class="award-image entry" style="height:205px;">
                                                                     <a href="{{url_for('nominee_category_detail', name=judge.name)}}" title="">
                                                                         <img src="{{url_for('get_upload', filename=judge.image_url)}}"
                                                                             alt="" class="img-responsive">
@@ -227,11 +222,12 @@
                                                         </div>
                                                         <div class="ts-nominees ts-nominees-loop list-items">
 
-                                                            {% for nominee in nominees[:8] %}
+                                                            {% for nominee in nominees[::-1][:6] %}
                                                             <div class="col-md-3 col-sm-6 wow fadeIn"
                                                                 data-wow-duration="1s" data-wow-delay="0.1s">
                                                                 <div class="site-wrapper">
-                                                                    <div class="award-image entry">
+                                                                    <div class="award-image entry" style="height:167px"
+                                                                >
                                                                         <a href="{{url_for('nominee_category_detail', name=nominee.name)}}"
                                                                             title="">
                                                                             <img src="{{url_for('get_upload', filename=nominee.image_url)}}"
@@ -299,7 +295,7 @@
                                                         <div class="textwidget"><a
                                                                 href="index.html"><img
                                                                     class="alignnone size-full wp-image-62"
-                                                                    src="assets/images/fdlogo.png"
+                                                                    src="{{url_for('static', filename='images/fdlogo.png')}}"
                                                                     alt="logo" width="100" height="100" /></a></div>
                                                     </div>
                                                 </div>

@@ -1,9 +1,44 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-    <title>Agencies</title>
+    <title>Organisers</title>
+<style>
+.site-colors, .site-tags, .single-site .site-tags .cat_list a, .single-site .site-single-share .cat_list a, .bb:hover, .cat_list a, .search-form .form-group input.form-control, .newsletterform .form-control, .section.lb {
+        background-color: #212121 !important;
+        
+}
+section.section {
+        position: relative;
+            display: block;
+                padding: 90px 0 !important;
+                background: #212121 !important;
+                     
+}
+</style>
 {% endblock %}
 
+{% block top %}
+<div class="section">
+                <div class="container">
+                                    <div class="row">
+                                                            <div class="col-md-10 col-md-offset-1 text-center">
+                                                                                        <div class="section-title page-title">
+                                                                                                                        <h3 class="small-title">Organisers</h3>
+                                                                                                                                                    <p>If you are looking professional web designer or web developer, right place here for you
+                                                                                                                                                                                </p>
+
+                                                                                                                                                                                                            <div class="bread">
+                                                                                                                                                                                                                                                <ol class="breadcrumb">
+                                                                                                                                                                                                                                                    <li><a href="{{url_for('index')}}">Home</a></li>
+                                                                                                                                                                                                                                                                                                                            <li class="active">Organisers</li>
+                                                                                                                                                                                                                                                                                                                                                            </ol>
+                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                </div><!-- end text-widget -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                    </div><!-- end col -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+{% endblock %}
 {% block body %}
                 <div class="container">
 
@@ -15,26 +50,46 @@
                             <div class="post-padding clearfix">
                                 <div id="pl-67" class="panel-layout">
                                     <div id="pg-67-0" class="panel-grid panel-no-style">
-                                        <div id="pgc-67-0-0" class="panel-grid-cell">
+                                        <div id="pgc-67-0-0" class="panel-grid-cell" style="width: 100%;">
                                             <div id="panel-67-0-0-0"
                                                 class="so-panel widget widget_themestall themestall panel-first-child panel-last-child"
                                                 data-index="0">
                                                 <div class="textwidget">
                                                     <div class="row list-items">
-                                                        <div class="col-md-4 wow fadeIn" data-wow-duration="1s"
-                                                            data-wow-delay="0.2s">
-                                                            <div class="award-details awards-wrapper">
-                                                                <div class="site-publisher clearfix">
-                                                                    <img src="https://via.placeholder.com/150"
-                                                                        width="60" height="60" alt="Avatar"
-                                                                        class="avatar avatar-60 wp-user-avatar wp-user-avatar-60 photo avatar-default" />
-                                                                    <a href="../author/afcode/index.html" title="">
-                                                                        <h4>afcode</h4>
-                                                                    </a>
-                                                                    <small></small>
-                                                                </div><!-- end publisher -->
-                                                            </div><!-- end details -->
-                                                        </div><!-- end col -->
+                                                                                {% for judge in judges %}
+                        <div class="col-md-4 col-sm-6 wow fadein" data-wow-duration="1s" data-wow-delay="0.2s">
+                            <div class="site-wrapper">
+                                <div class="award-image nominee-image entry">
+                                    <a href="{{url_for('nominee_category_detail', name=judge.name)}}">
+                                        <img src="{{url_for('get_upload', filename=judge.image_url)}}"
+                                                
+                                            alt="award_04"> </a>
+                                </div><!-- end image -->
+
+                                <div class="site-small-desc clearfix">
+                                    <div class="pul {l-left">
+                                        <a href="{{url_for('nominee_category_detail', name=judge.name)}}">
+                                            <h4>{{judge.name}}</h4>
+                                        </a>
+                                    </div>
+                                    <!--
+                                    <div class="likebutton pull-right text-center">
+                                        <div class="sl-wrapper"><a
+                                                href="../../nominee/aiga-design-2/index.html?action=process_simple_like&amp;post_id=156&amp;nonce=1931126ad5&amp;is_comment=0&amp;disabled=true"
+                                                class="sl-button sl-button-156" data-nonce="1931126ad5"
+                                                data-post-id="156" data-iscomment="0" title="like"><span
+                                                    class="sl-icon"><i class="flaticon-heart"></i></span><span
+                                                    class="sl-count">62</span></a>
+                                            <div class="sl-loader"></div>
+                                        </div>
+                                    </div>--><!-- end pull-right -->
+                                </div><!-- end desc -->
+                            </div><!-- end site-wrapper -->
+                        </div>
+                        
+                        {% endfor %}
+
+
                                                         <nav class="agency-pagination clearfix">
                                                             <div class="pagination"></div>
                                                         </nav>

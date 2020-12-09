@@ -161,7 +161,8 @@ def nominee_category_detail(name):
 
 @app.route('/award-winners/')
 def award_winners():
-    return render_template('award-winners/index.html')
+    winners = Nominees.query.all()
+    return render_template('award-winners/index.html', winners=winners)
 
 @app.route("/winner/")
 def winner():
@@ -171,9 +172,10 @@ def winner():
 
 
 
-@app.route('/agencies')
+@app.route('/organizers/')
 def agencies():
-    return render_template('agencies-freelancers/index.html')
+    judges = Judges.query.all()
+    return render_template('agencies-freelancers/index.html', judges=judges)
 
 
 @app.route("/support/")
