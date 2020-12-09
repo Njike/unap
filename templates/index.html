@@ -23,10 +23,11 @@
                                                 <div id="panel-57-0-0-0"
                                                     class="so-panel widget widget_themestall themestall panel-first-child"
                                                     data-index="0">
+                                                    {% if winner %}
                                                     <div class="textwidget">
                                                         <div class="ts-nominees ts-nominees-featured row">
                                                             <div class="col-md-7">
-                                                                <div class="award-image entry" style="height: 500px;>
+                                                                <div class="award-image entry" style="height: 500px;">
                                                                     <a href="{{url_for('nominee_category_detail', name=winner.name)}}" title="">
                                                                         <img src="{{url_for('get_upload', filename=winner.image_url)}}"
                                                                             alt="" class="img-responsive">
@@ -75,6 +76,7 @@
                                                             </div><!-- end col -->
                                                         </div>
                                                     </div>
+                                                    {% endif %}
                                                 </div>
                                                 <!-- <div id="panel-57-0-0-1"
                                                     class="so-panel widget widget_themestall themestall panel-last-child"
