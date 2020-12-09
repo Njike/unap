@@ -1,0 +1,133 @@
+/************************************
+    File Name: colors.css
+    Template Name: Awards
+    Created By: Similar Icons
+    Envato Profile: http://themeforest.net/user/similaricons
+    Website: https://similaricons.com
+    Version: 1.0
+************************************/
+
+a,
+.color,
+.rating a:hover i,
+.rating a:focus i,
+.rating a.active i,
+.rating a:active i,
+.rating a:visited i,
+.breadcrumb > li a,
+.bb:hover .callout .lead,
+.bb:hover .callout h4,
+.bb:hover .callout h3 {
+    color: rgb(255, 179, 0);
+}
+
+mark,
+.site-share li:hover,
+.progress-bar-custom,
+.corner-ribbon,
+.navbar-default .navbar-nav > li.submit:hover a,
+.navbar-default .navbar-nav > li.submit,
+.navbar-default .navbar-nav > li > a:before {
+    background-color: rgb(255, 179, 0);
+}
+
+.site-single-share .cat_list.site-cat a:hover {
+    background-color: rgb(255, 179, 0) !important;
+    border-color: rgb(255, 179, 0) !important;
+    color: #ffffff !important;
+}
+
+.pager li:hover > a,
+.pager li:hover > span,
+.like-button,
+.site-vote small,
+.single-site .site-tags .cat_list a:hover,
+.blog-tags .cat_list a:hover,
+.widget .cat_list a:hover,
+.pagination li:hover a,
+.pagination li:focus a,
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus,
+.search-top .btn-group.open .dropdown-toggle:focus,
+.search-top .btn-default:hover,
+.search-top .btn-group.open .dropdown-toggle:hover,
+.search-top .btn-default:focus,
+.bb,
+.social-links li,
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-offical:focus,
+.btn-offical:hover,
+.pagination li.current a,
+.more-link {
+    background-color: rgb(255, 179, 0);
+    border-color: rgb(255, 179, 0);
+    color: #ffffff !important;
+}
+
+.header {
+    border-top-color: rgb(255, 179, 0);
+}
+
+.form-control:focus,
+.footer li:hover a {
+    border-color: rgb(255, 179, 0);
+}
+
+::-moz-selection {
+    color: #ffffff;
+    text-shadow: none;
+    background: rgb(255, 179, 0);
+}
+
+::selection {
+    color: #ffffff;
+    text-shadow: none;
+    background: rgb(255, 179, 0);
+}
+
+.bootstrap-select .form-control:focus {
+    border-color: #ffffff !important;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 902px) {
+    .navbar-default .navbar-nav > li.submit:hover a,
+    .navbar-default .navbar-nav > li.submit,
+    .navbar-default .navbar-nav > li > a:before,
+    .navbar-default .navbar-nav > li.submit a {
+        color: #212121!important;
+        padding: 0;
+        background-color: transparent !important;
+    }
+	
+	.navbar-default .navbar-nav ul ul{
+		overflow: hidden;
+	}
+}
+
+@media (max-width: 768px) {
+	.visible-sec{
+		display: none;
+	}
+	
+	.hidden-sec{
+		display: block;
+	}
+	
+	.footer-widget-area .widget{
+		margin-bottom: 20px;
+	}
+	
+	.comments-list .children {
+		padding-left: 5px;
+	}
+	
+	.comments-list .media{
+		padding: 5px;
+	}
+}

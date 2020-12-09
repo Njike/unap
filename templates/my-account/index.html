@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>My Account &#8211; Dark Layout</title>
+{% endblock %}
+    
+{% block body %}
+        <section class="section lb">
+
+<div class="container">
+
+	    
+    <div class="row">
+    
+    	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+		<div class="content-page">
+		<div class="post-padding clearfix">
+	<div class="woocommerce">
+
+<div class="woocommerce-notices-wrapper"></div>
+
+<div class="u-columns col2-set" id="customer_login">
+
+	<div class="u-column1 col-md-5">
+
+
+		<div class="section-ab-title"><h4>Login</h4></div>
+		<div class="login-page content">
+            <form method="post" class="login">
+            {{form_login.hidden_tag()}}
+			
+			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+            {{form_login.emailorUsername(class="form-control login-field", id="username", placeholder="Username" )}}
+			</p>
+			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+            {{form_login.password(class="form-control login-field", id="password", placeholder="Password")}}
+			</p>
+
+			
+			<p class="form-row">
+                    {{form_login.remember.label}}
+                    {{form_login.remember(class="woocomerce-Input woocomerse-Input--checkbox", id="rememberme", value="forever")}}
+			</p>
+			<p class="woocommerce-LostPassword lost_password">
+				<a href="lost-password/index.html">Lost your password?</a>
+			</p>
+
+			
+       <button type="submit" class="btn btn-secondary">Login</button> 
+		</form>
+        </div>
+
+
+	</div>
+
+	<div class="u-column2 col-md-7">
+
+		<div class="section-ab-title"><h4>Register</h4></div>
+		<div class="login-page content">
+		<form method="post" class="register">
+
+		    {{form_register.hidden_tag()}}	
+			
+				<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+                {{form_register.username(class="form-control login-field", id="reg_username", placeholder="username")}}
+				</p>
+
+			
+			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+            {{form_register.email(class="form-control login-field", required="required", id="reg_email", placeholder="email")}}
+			</p>
+
+			
+				<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+                {{form_register.password1(class="form-control login-field", id="reg_password", placeholder="Password")}}
+				</p>
+<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+                {{form_register.password2(class="form-control login-field", id="reg_password", placeholder="Verify Password")}}
+				</p>
+
+
+			
+			<div class="woocommerce-privacy-policy-text"></div>
+
+			       <p class="form-row form-row-wide">
+       
+       <label for="reg_as_nominee">
+       Apply for Agency or Nominee?</label>
+
+           {{form_register.agree(class="nominee-text", id="reg_nominee" )}}
+       </p>
+       <div class="clear"></div>
+       <button type="submit" class="btn btn-secondary">Register </button> 
+		</form>
+		</div>
+	</div>
+
+</div>
+
+</div>
+    
+        </div>    
+</div>
+        
+    </div>
+
+	     
+    </div>
+    
+</div>
+<!-- Content Wrap -->
+
+{% endblock %}
+           

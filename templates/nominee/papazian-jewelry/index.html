@@ -1,0 +1,73 @@
+{% extends 'layout.html'%}
+
+{% block title %}
+<title>Nominee - {{nominee.name}}</title>
+{% endblock %}
+{% block body %}
+                <div class="container-fluid">
+
+
+                <div class="row-fluid">
+
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+
+
+                        <div class="row single-top-content">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="award-image entry">
+                                    <a href="#" target="_blank" rel="nofollow">
+                                        <img src="{{url_for('get_upload', filename=nominee.image_url)}}" alt="award_09">
+                                        <div class="magnifier">
+                                            <div class="magni-desc">
+                                                <h4>{{nominee.category}}</h4>
+                                                <p>{{nominee.date.strftime('%d, %B %Y')}}</p>
+                                            </div>
+                                        </div><!-- end magnifier -->
+                                    </a>
+                                </div><!-- end image -->
+
+                                <div class="site-single-share clearfix">
+                                    <div class="pull-left">
+                                        <ul class="list-inline software_version">
+                                            <li>Software <i class="fa fa-tags"></i></li>
+
+                                        </ul>
+                                    </div><!-- end left -->
+                                   
+                                </div><!-- end publisher -->
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <div class="award-details awards-wrapper">
+                                    <div class="site-publisher clearfix">
+                                        <h4 class="site-title">{{nominee.name}}</h4>
+                                        <p>
+                                        {{nominee.description}}</p>
+                                    </div><!-- end publisher -->
+
+
+
+
+                                </div><!-- end details -->
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <hr class="invis">
+
+                       
+
+                        </div><!-- end .row -->
+
+                
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!-- Content Wrap -->
+
+            {% endblock %}
+        

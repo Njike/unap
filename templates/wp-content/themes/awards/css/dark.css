@@ -1,0 +1,173 @@
+/************************************
+DARK
+************************************/
+
+.demo_changer .btn-offical {
+    border: 1px solid #333 !important;
+}
+.demo_changer h4 {
+    color:#999 !important;
+}
+.blog-meta small,
+.blog-meta .list-inline li,
+.blog-meta .list-inline li a,
+.blog-desc .lead,
+.main-menu li a,
+.main-menu li:hover a,
+.site-vote p,
+.likebutton,
+#nav-close,
+small,
+.likebutton a,
+.site-small-desc p a,
+.site-publisher small,
+.site-share li i,
+.search-form .form-group span.form-control-feedback,
+blockquote,
+a h1,
+a h2,
+a h3,
+a h4,
+a h5,
+a h6,
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+a:hover,
+a:focus,
+body,
+p {
+    color: #999;
+}
+
+.header {
+    border-bottom-color: #292929;
+}
+
+hr,
+.site-colors,
+.site-tags,
+.site-single-share,
+.single-site .site-colors,
+.single-site .award-details,
+.blog-tags .cat_list a,
+.widget .cat_list a,
+.fileupload-preview,
+.search-top.contact-form .form-control,
+.search-top .bootstrap-select.btn-group .dropdown-menu .form-control,
+.search-top .bootstrap-select.btn-group .dropdown-menu,
+.main-menu li,
+.search-top .btn-group.open .dropdown-toggle,
+.search-top .btn-default,
+.site-progress,
+.site-vote,
+.newsletterform .form-control,
+.site-desc,
+.review-single .content .site-wrapper,
+.comment-review,
+.copyrights .container {
+    border-color: #292929;
+}
+
+.img-normal img,
+.single-site .site-tags .cat_list a,
+.single-site .site-colors .cat_list a,
+.single-site .site-single-share .cat_list a,
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus,
+.pagination > li > a,
+.pagination > li > span,
+.bootstrap-select .form-control:focus {
+    border-color: #111111 !important;
+}
+
+.site-colors,
+.site-tags,
+.single-site .site-tags .cat_list a,
+.single-site .site-single-share .cat_list a,
+.bb:hover,
+.cat_list a,
+.search-form .form-group input.form-control,
+.newsletterform .form-control,
+.section.lb {
+    background-color: #212121;
+}
+
+.demo_changer .form_holder,
+.fileupload-preview,
+.search-top .bootstrap-select.btn-group .dropdown-menu > li:hover a,
+.search-top .bootstrap-select.btn-group .dropdown-menu,
+.site-vote.skore small {
+    background-color: #212121 !important;
+}
+
+.widget,
+.panel-body,
+.content,
+.section-ab-title h4,
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus,
+.pagination > li > a,
+.pagination > li > span,
+.search-top.contact-form .form-control,
+nav.sidenav,
+.search-top .bootstrap-select.btn-group .dropdown-menu .form-control,
+.search-form .form-group span.form-control-feedback,
+.navbar-default,
+.header,
+.search-top,
+.search-top .btn-group.open .dropdown-toggle,
+.search-top .btn-default,
+.site-progress,
+.site-small-desc,
+.site-publisher,
+.copyrights,
+.section {
+    background-color: #1a1a1a;
+}
+
+.btn-offical {
+    color: #ffffff;
+    border-color: #999;
+}
+
+.archive_list a:hover,
+.cat_list a:hover,
+.navbar-default .navbar-nav > li:hover a,
+.navbar-default .navbar-nav > li:focus a,
+.navbar-default .navbar-nav > li.active a {
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    color: #fff;
+    /* For IE8 and earlier */
+}
+
+.newsletterform .form-control, .widget_newsletterwidget .tnp-widget .tnp-email{
+	background: #212121!important;
+	color: #999;
+}

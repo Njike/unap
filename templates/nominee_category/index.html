@@ -1,0 +1,67 @@
+{% extends 'layout.html'%}
+
+{% block title %}
+    <title>Nominees</title>
+{% endblock %}
+
+
+{% block body %}
+                <div class="container">
+
+
+                <div class="row">
+
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                        {% for nominee in nominees %}
+                        <div class="col-md-4 col-sm-6 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+                            <div class="site-wrapper">
+                                <div class="award-image nominee-image entry">
+                                    <a href="{{url_for('nominee_category_detail', name=nominee.name)}}">
+                                        <img src="{{url_for('get_upload', filename=nominee.image_url)}}"
+                                                
+                                            alt="award_04"> </a>
+                                </div><!-- end image -->
+
+                                <div class="site-small-desc clearfix">
+                                    <div class="pull-left">
+                                        <a href="{{url_for('nominee_category_detail', name=nominee.name)}}">
+                                            <h4>{{nominee.name}}</h4>
+                                        </a>
+                                        <p><a href="#">{{nominee.category}}</a></p>
+                                    </div>
+                                    <!--
+                                    <div class="likebutton pull-right text-center">
+                                        <div class="sl-wrapper"><a
+                                                href="../../nominee/aiga-design-2/index.html?action=process_simple_like&amp;post_id=156&amp;nonce=1931126ad5&amp;is_comment=0&amp;disabled=true"
+                                                class="sl-button sl-button-156" data-nonce="1931126ad5"
+                                                data-post-id="156" data-iscomment="0" title="Like"><span
+                                                    class="sl-icon"><i class="flaticon-heart"></i></span><span
+                                                    class="sl-count">62</span></a>
+                                            <div class="sl-loader"></div>
+                                        </div>
+                                    </div>--><!-- end pull-right -->
+                                </div><!-- end desc -->
+                            </div><!-- end site-wrapper -->
+                        </div>
+                        
+                        {% endfor %}
+
+                        
+                        <nav class="clearfix">
+                            <ul class="pagination">
+                                <li class="list-nav current"><a href="index.html">1</a></li>
+                                <li class="list-nav"><a href="page/2/index.html">2</a></li>
+                                <li><a href="page/2/index.html">&raquo;</a></li>
+                            </ul>
+                        </nav>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!-- Content Wrap -->
+
+            {% endblock %}
+        
