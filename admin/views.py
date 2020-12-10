@@ -72,7 +72,7 @@ class NomineeController(ControllerView):
         # print("model =============== ", form.amount)
         if form.data and form.validate:
             model.name = form.name.data
-            model.date = form.date.data
+            model.country = form.country.data
             model.description = form.description.data
             model.category = form.category.data
 
@@ -110,7 +110,7 @@ class NomineeController(ControllerView):
             model = self.model()
             path = imageHandler(form.image.data)
             model.name = form.name.data
-            model.date = form.date.data
+            model.country = form.country.data
             model.description = form.description.data
             model.category = form.category.data
             model.image_url = path

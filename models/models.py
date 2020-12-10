@@ -57,7 +57,7 @@ class Nominees(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     image_url = db.Column(db.String(47), nullable=False)
     name = db.Column(db.String(255), nullable=False)
-    date  = db.Column(db.DateTime)
+    country = db.Column(db.String(50))
     description = db.Column(db.Text, nullable=False)
     award_category = db.Column(db.Integer, db.ForeignKey('award_category.id') )
     winner = db.Column(db.Boolean, default=False)
