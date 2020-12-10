@@ -68,7 +68,7 @@
                                                                                                                       {{winner.description}}
                                                                                                                       {% else %}
                                                                                                                                                {{winner.description[:501]}}
-                                                                                                                      <a class="read-more" href="{{url_for('winner')}}">&#8230;</a>
+                                                                                                                      <a class="read-more" href="{{url_for('nominee_category_detail', name=winner.name)}}">&#8230;</a>
                                                                                                                                                {% endif %}
                                                                         </p>
                                                                     </div><!-- end publisher -->
@@ -336,6 +336,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!--
                                     <div id="pg-57-4" class="panel-grid panel-has-style">
                                         <div class="siteorigin-panels-stretch panel-row-style panel-row-style-for-57-4"
                                             data-stretch-type="full">
@@ -364,9 +365,9 @@
                                                                             <h4>afcode</h4>
                                                                         </a>
                                                                         <small></small>
-                                                                    </div><!-- end publisher -->
-                                                                </div><!-- end details -->
-                                                            </div><!-- end col -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div class="ts-spacer" style="height:20px"></div>
                                                         <div class="ts-button-center"><a
@@ -385,6 +386,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    -->
                                 </div>
                             </div>
                         </div>
