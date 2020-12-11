@@ -89,11 +89,14 @@ class Judges(db.Model):
 class BestJudgeWriteUp(db.Model):
     __tablename__ = "bestJudgeWriteUp"
     id = db.Column(db.Integer, primary_key=True)
+    header_text = db.Column(db.Text, nullable=False, default="Meet our best organisers")
     text = db.Column(db.Text)
+
 
 class RecentNomineeWriteUp(db.Model):
     __tablename__ = "recentNomineeWritup"
     id = db.Column(db.Integer, primary_key=True)
+    header_text = db.Column(db.Text, nullable=False, default="Our Nomimees are")
     text = db.Column(db.Text)
 
 class Awards(db.Model):
@@ -101,6 +104,7 @@ class Awards(db.Model):
     name = db.Column(db.String(40))
     award_category = db.Column(db.Integer, db.ForeignKey('award_category.id'))
     description = db.Column(db.Text)
+    show_on_billboard = db.Column(db.Boolean)
     image_url = db.Column(db.String(100), nullable=False)
 
     def __str__(self):

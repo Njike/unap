@@ -201,6 +201,7 @@ class AwardController(ControllerView):
         # print("model =============== ", form.amount)
         if form.data and form.validate:
             model.name = form.name.data
+            model.show_on_billboard = form.show_on_billboard.data
             model.category = form.category.data
             model.description = form.description.data
 
@@ -230,6 +231,7 @@ class AwardController(ControllerView):
             model = self.model()
             path = imageHandler(form.image.data)
             model.name = form.name.data
+            model.show_on_billboard = form.show_on_billboard.data
             model.category = form.category.data
             model.description = form.description.data
             model.image_url = path

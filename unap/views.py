@@ -129,8 +129,9 @@ def index():
     judges_text = BestJudgeWriteUp.query.first()
     nominee_text = RecentNomineeWriteUp.query.first()
     awards = Awards.query.all()
+    award = Awards.query.filter_by(show_on_billboard=True).first()
     return render_template(
-        'index.html', winner=winner, nominees=nominees, judges=judges, judges_text=judges_text, nominee_text=nominee_text, awards=awards)
+        'index.html', award=award, winner=winner, nominees=nominees, judges=judges, judges_text=judges_text, nominee_text=nominee_text, awards=awards)
 
 @app.route("/about-us/")
 def about_us():

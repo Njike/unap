@@ -6,6 +6,9 @@
 
 {% block body %}
 <style>
+.site-publisher img {
+    max-height: 60px !important;
+}
 </style>
             <div class="container">
 
@@ -23,7 +26,7 @@
                                                 <div id="panel-57-0-0-0"
                                                     class="so-panel widget widget_themestall themestall panel-first-child"
                                                     data-index="0">
-                                                    {% if winner %}
+                                                    {% if winner and award.show_on_billboard %}
                                                     <div class="textwidget">
                                                         <div class="ts-nominees ts-nominees-featured row">
                                                             <div class="col-md-7">
@@ -86,6 +89,63 @@
                                                             </div><!-- end col -->
                                                         </div>
                                                     </div>
+                                                    {% elif award.show_on_billboard %}
+                                                    <div class="textwidget">
+                                                        <div class="ts-nominees ts-nominees-featured row">
+                                                            <div class="col-md-7">
+                                                                <div class="award-image entry" style="height: 500px;">
+                                                                    <a href="{{url_for('award_category_detail', name=award.name)}}" title="">
+                                                                        <img src="{{url_for('get_upload', filename=award.image_url)}}"
+                                                                            alt="" class="img-responsive">
+                                                                        <div class="magnifier">
+                                                                            <div class="magni-desc">
+                                                                                <h4>{{award.name}}</h4>
+                                                                            </div>
+                                                                        </div><!-- end magnifier -->
+                                                                    </a>
+                                                                </div><!-- end image -->
+                                                            </div><!-- end col -->
+
+                                                            <div class="col-md-5">
+                                                                <div class="award-details awards-wrapper" style="">
+                                                                    <div class="site-publisher clearfix" >
+                                                                        <div class="corner-ribbon top-right"><a
+                                                                             href="{{url_for('award_category_detail', name=award.name)}}"><i
+                                                                                    class="flaticon-heart"></i></a>
+                                                                        </div>
+                                                                        <img src="{{url_for('get_upload', filename=award.image_url)}}"
+                                                                            width="60" height="60" alt="awards"
+                                                                            class="avatar avatar-60 wp-user-avatar wp-user-avatar-60 alignnone photo" />
+                                                                        <div style="display:flex;">
+                                                                            <div>
+                                                                                <a href="{{url_for('award_category_detail', name=award.name)}}" title="">
+                                                                            <h4>{{award.name}} 
+                                                                            </h4>
+                                                                        </a>
+                                                                            </div>
+                                                                           
+                                                                    </div>
+                                                                    </div><!-- end publisher -->
+
+                                                                                                                                        <div class="site-publisher clearfix" style="min-height: 382px;max-height: 382px;">
+                                                                        <h4><a href="{{url_for('award_category_detail', name=award.name)}}"
+                                                                                                                      title="">
+                                                                               &nbsp;&nbsp;<small>Learn
+                                                                                    More</small></a></h4>
+                                                                        <p> 
+                                                                        {% if award.description|length < 500 %}
+                                                                                                                      {{award.description}}
+                                                                                                                      {% else %}
+                                                                                                                                               {{award.description[:501]}}
+                                                                                                                      <a class="read-more" href="{{url_for('award_category_detail', name=award.name)}}">&#8230;</a>
+                                                                                                                                               {% endif %}
+                                                                        </p>
+                                                                    </div><!-- end publisher -->
+                                                                </div><!-- end details -->
+                                                            </div><!-- end col -->
+                                                        </div>
+                                                    </div>
+                                                    
                                                     {% endif %}
                                                 </div>
                                                 <!-- <div id="panel-57-0-0-1"
@@ -177,7 +237,7 @@
                                                     <div class="textwidget">
                                                         <h3 class="ts-heading ts-heading-style-2 ts-heading-align-left"
                                                             style="margin-top:0px; margin-bottom:0px; font-size: 55px; text-transform: capitalize; color: #ffffff; letter-spacing: 0px; ">
-                                                            <span class="ts-heading-inner">Meet Our Awesome Organisers</span></h3>
+                                                            <span class="ts-heading-inner">{{judges_text.header_text}}</span></h3>
                                                     </div>
                                                 </div>
                                                 <div id="panel-57-1-0-1"
@@ -227,14 +287,14 @@
                                                     <div class="textwidget">
                                                         <div class="col-md-8 col-md-offset-2 text-center">
                                                             <div class="section-title" style="margin-bottom: 45px;">
-                                                                <h3 class="small-title" style="font-size: 55px;">Recent
-                                                                    Nominees from the Creative Designers</h3>
+                                                                <h3 class="small-title" style="font-size: 55px;">
+                                                                    {{nominee_text.header_text }}</h3>
                                                                 <p>{{nominee_text.text}}</p>
                                                             </div>
                                                         </div>
                                                         <div class="ts-nominees ts-nominees-loop list-items">
 
-                                                            {% for nominee in nominees[::-1][:6] %}
+                                                            {% for nominee in nominees[::-1][:8] %}
                                                             <div class="col-md-3 col-sm-6 wow fadeIn"
                                                                 data-wow-duration="1s" data-wow-delay="0.1s">
                                                                 <div class="site-wrapper">
@@ -253,8 +313,10 @@
                                                                                 title="">
                                                                                 <h4>{{nominee.name}}</h4>
                                                                             </a>
+                                                                            {% if nominee.category %}
                                                                             <p><a href="#"
                                                                                       title="">{{nominee.category}}</a></p>
+                                                                            {% endif %}
                                                                         </div>
                                                                         <div class="likebutton pull-right text-center">
                                                                             <!--
@@ -335,8 +397,10 @@
                                                                                 title="">
                                                                                 <h4>{{award.name}}</h4>
                                                                             </a>
+                                                                            {% if award.category %}
                                                                             <p><a href="#"
                                                                                       title="">{{award.category}}</a></p>
+                                                                            {% endif %}
                                                                         </div>
                                                                         <div class="likebutton pull-right text-center">
                                                                             <!--
@@ -417,6 +481,7 @@
                                                                     alt="logo" width="100" height="100" /></a></div>
                                                     </div>
                                                 </div>
+                                                {% if False %}
                                                 <div id="panel-57-3-0-1"
                                                     class="so-panel widget widget_themestall themestall" data-index="7">
                                                     <div class="textwidget">
@@ -449,6 +514,7 @@
                                                         </form>
                                                     </div>
                                                 </div>
+                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>
