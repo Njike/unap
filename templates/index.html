@@ -7,7 +7,8 @@
 {% block body %}
 <style>
 .site-publisher img {
-    max-height: 60px !important;
+    height: 60px !important;
+    width: 60px !important;
 }
 </style>
             <div class="container">
@@ -89,6 +90,73 @@
                                                             </div><!-- end col -->
                                                         </div>
                                                     </div>
+
+
+                                                    {% elif winner %}
+                                                    <div class="textwidget">
+                                                        <div class="ts-nominees ts-nominees-featured row">
+                                                            <div class="col-md-7">
+                                                                <div class="award-image entry" style="height: 500px;">
+                                                                    <a href="{{url_for('nominee_category_detail', name=winner.name)}}" title="">
+                                                                        <img src="{{url_for('get_upload', filename=winner.image_url)}}"
+                                                                            alt="" class="img-responsive">
+                                                                        <div class="magnifier">
+                                                                            <div class="magni-desc">
+                                                                                <h4>Award Winner</h4>
+                                                                            </div>
+                                                                        </div><!-- end magnifier -->
+                                                                    </a>
+                                                                </div><!-- end image -->
+                                                            </div><!-- end col -->
+
+                                                            <div class="col-md-5">
+                                                                <div class="award-details awards-wrapper" style="">
+                                                                    <div class="site-publisher clearfix" >
+                                                                        <div class="corner-ribbon top-right"><a
+                                                                             href="{{url_for('nominee_category_detail', name=winner.name)}}"><i
+                                                                                    class="flaticon-heart"></i></a>
+                                                                        </div>
+                                                                        <img src="{{url_for('get_upload', filename=winner.image_url)}}"
+                                                                            width="60" height="60" alt="awards"
+                                                                            class="avatar avatar-60 wp-user-avatar wp-user-avatar-60 alignnone photo" />
+                                                                        <div style="display:flex;">
+                                                                            <div>
+                                                                        <a href="#" title="">
+                                                                            <h4> Award Category
+                                                                            </h4>
+                                                                        </a>
+                                                                        <small>{{winner.category.name}}</small>
+                                                                            </div>
+                                                                            <div style="padding-left:14px;">
+<a href="#" title="">
+                                                                            <h4>Country 
+                                                                            </h4>
+                                                                        </a>
+                                                                        <small>{{winner.country}}</small>
+                                                                            </div>
+                                                                    </div>
+                                                                    </div><!-- end publisher -->
+
+                                                                                                                                        <div class="site-publisher clearfix" style="min-height: 382px;max-height: 382px;">
+                                                                        <h4><a href="{{url_for('nominee_category_detail', name=winner.name)}}"
+                                                                                                                      title="">{{winner.name}}
+                                                                               &nbsp;&nbsp;<small>Learn
+                                                                                    More</small></a></h4>
+                                                                        <p> 
+                                                                        {% if winner.description|length < 500 %}
+                                                                                                                      {{winner.description}}
+                                                                                                                      {% else %}
+                                                                                                                                               {{winner.description[:501]}}
+                                                                                                                      <a class="read-more" href="{{url_for('nominee_category_detail', name=winner.name)}}">&#8230;</a>
+                                                                                                                                               {% endif %}
+                                                                        </p>
+                                                                    </div><!-- end publisher -->
+                                                                </div><!-- end details -->
+                                                            </div><!-- end col -->
+                                                        </div>
+                                                    </div>
+
+
                                                     {% elif award.show_on_billboard %}
                                                     <div class="textwidget">
                                                         <div class="ts-nominees ts-nominees-featured row">
@@ -145,6 +213,7 @@
                                                             </div><!-- end col -->
                                                         </div>
                                                     </div>
+
                                                     
                                                     {% endif %}
                                                 </div>
