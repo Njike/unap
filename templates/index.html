@@ -90,7 +90,7 @@
                                                 </div>
                                                 <!-- <div id="panel-57-0-0-1"
                                                     class="so-panel widget widget_themestall themestall panel-last-child"
-                                                    data-index="1">
+                                                award    data-index="1">
                                                     <div class="textwidget">
                                                         <div class="search-top site-search clearfix">
                                                             <div class="row">
@@ -199,7 +199,7 @@
                                                             <div class="col-md-6 wow fadeIn" data-wow-duration="1s"
                                                                 data-wow-delay="0.8s">
                                                                 <div class="award-image entry" style="height:205px;">
-                                                                    <a href="{{url_for('nominee_category_detail', name=judge.name)}}" title="">
+                                                                    <a href="{{url_for('organiser_category_detail', name=judge.name)}}" title="">
                                                                         <img src="{{url_for('get_upload', filename=judge.image_url)}}"
                                                                             alt="" class="img-responsive">
                                                                         <div class="magnifier">
@@ -280,7 +280,7 @@
                                                         </div>
                                                         <div class="ts-spacer" style="height:20px"></div>
                                                         <div class="ts-button-center"><a
-                                                                href="#"
+                                                             href="{{url_for('nominee_category')}}"
                                                                 data-hoverback="rgb(255, 179, 0)"
                                                                 data-currentbg="rgba(255,255,255, 0)"
                                                                 data-currentbor="#ffffff" data-currentcolor="#ffffff"
@@ -295,6 +295,112 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    {% if awards %}
+                                    <!-- expected comment start -->
+                                    <div id="pg-57-4" class="panel-grid panel-has-style">
+                                        <div class="siteorigin-panels-stretch panel-row-style panel-row-style-for-57-4"
+                                            data-stretch-type="full">
+                                            <div id="pgc-57-4-0" class="panel-grid-cell">
+                                                <div id="panel-57-4-0-0"
+                                                    class="so-panel widget widget_themestall themestall panel-first-child panel-last-child"
+                                                    data-index="9">
+                                                    <div class="textwidget">
+                                                        <div class="col-md-8 col-md-offset-2 text-center">
+                                                            <div class="section-title" style="margin-bottom: 55px;">
+                                                                <h3 class="small-title" style="font-size: 55px;">
+                                                                    Awards </h3>
+                                                                <p> Awards to be given to the winner of the various categories
+                                                                    </p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row list-items">
+                                                            {% for award in awards %}
+                                                            <div class="col-md-3 col-sm-6 wow fadeIn"
+                                                                data-wow-duration="1s" data-wow-delay="0.1s">
+                                                                <div class="site-wrapper">
+                                                                    <div class="award-image entry" style="height:167px"
+                                                                >
+                                                                        <a href="{{url_for('award_category_detail', name=award.name)}}"
+                                                                            title="">
+                                                                            <img src="{{url_for('get_upload', filename=award.image_url)}}"
+                                                                                alt="" class="img-responsive">
+                                                                        </a>
+                                                                    </div><!-- end image -->
+
+                                                                    <div class="site-small-desc clearfix">
+                                                                        <div class="pull-left">
+                                                                            <a href="{{url_for('award_category_detail', name=award.name)}}"
+                                                                                title="">
+                                                                                <h4>{{award.name}}</h4>
+                                                                            </a>
+                                                                            <p><a href="#"
+                                                                                      title="">{{award.category}}</a></p>
+                                                                        </div>
+                                                                        <div class="likebutton pull-right text-center">
+                                                                            <!--
+                                                                            <div class="sl-wrapper"><a
+                                                                                    href="#"
+                                                                                    class="sl-button sl-button-156"
+                                                                                    data-nonce="1931126ad5"
+                                                                                    data-post-id="156"
+                                                                                    data-iscomment="0"
+                                                                                    title="Like"><span
+                                                                                        class="sl-icon"><i
+                                                                                            class="flaticon-heart"></i></span><span
+                                                                                        class="sl-count">61</span></a>
+                                                                                <div class="sl-loader"></div>
+                                                                            </div>
+                                                                            -->
+                                                                        </div><!-- end pull-right -->
+                                                                    </div><!-- end desc -->
+                                                                </div><!-- end site-wrapper -->
+                                                            </div>
+                                                            {% endfor %}
+
+
+                                                            <!---
+                                                            <div class="col-md-4 wow fadeIn" data-wow-duration="1s"
+                                                                data-wow-delay="0.2s">
+                                                                <div class="award-details awards-wrapper">
+                                                                    <div class="site-publisher clearfix">
+                                                                        <img src="https://via.placeholder.com/150"
+                                                                            width="60" height="60" alt="Avatar"
+                                                                            class="avatar avatar-60 wp-user-avatar wp-user-avatar-60 photo avatar-default" />
+                                                                        <a href="author/afcode/index.html" title="">
+                                                                            <h4>afcode</h4>
+                                                                        </a>
+                                                                        <small></small>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            -->
+
+                                                        </div>
+                                                        <div class="ts-spacer" style="height:20px"></div>
+                                                        <!--
+                                                        <div class="ts-button-center"><a
+                                                                href="#"
+                                                                data-hoverback="rgb(255, 179, 0)"
+                                                                data-currentbg="rgba(255,255,255, 0)"
+                                                                data-currentbor="#ffffff" data-currentcolor="#ffffff"
+                                                                data-hovercolor="#ffffff"
+                                                                class="ts-button ts-button-style-standard"
+                                                                style="color:#ffffff;background:rgba(255,255,255, 0);border-color:#ffffff;border-radius:0px;-moz-border-radius:0px;-webkit-border-radius:0px"
+                                                                target="_self"><span
+                                                                    style="padding:0px 16px;font-size:13px;line-height:22px;border-color:#ffffff;border-radius:0px;-moz-border-radius:0px;-webkit-border-radius:0px;text-shadow:none;-moz-text-shadow:none;-webkit-text-shadow:none">VIEW
+                                                                    ALL AGENCIES </span></a></div>
+                                                        -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- expected comment-->
+                                    {% endif %}
+
+
                                     <div id="pg-57-3" class="panel-grid panel-has-style">
                                         <div class="parallax siteorigin-panels-stretch panel-row-style panel-row-style-for-57-3"
                                             data-stretch-type="full">
@@ -346,57 +452,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--
-                                    <div id="pg-57-4" class="panel-grid panel-has-style">
-                                        <div class="siteorigin-panels-stretch panel-row-style panel-row-style-for-57-4"
-                                            data-stretch-type="full">
-                                            <div id="pgc-57-4-0" class="panel-grid-cell">
-                                                <div id="panel-57-4-0-0"
-                                                    class="so-panel widget widget_themestall themestall panel-first-child panel-last-child"
-                                                    data-index="9">
-                                                    <div class="textwidget">
-                                                        <div class="col-md-8 col-md-offset-2 text-center">
-                                                            <div class="section-title" style="margin-bottom: 55px;">
-                                                                <h3 class="small-title" style="font-size: 55px;">Recent
-                                                                    Agencies from Around the World</h3>
-                                                                <p>If you are looking professional web designer or web
-                                                                    developer, right place here for you</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row list-items">
-                                                            <div class="col-md-4 wow fadeIn" data-wow-duration="1s"
-                                                                data-wow-delay="0.2s">
-                                                                <div class="award-details awards-wrapper">
-                                                                    <div class="site-publisher clearfix">
-                                                                        <img src="https://via.placeholder.com/150"
-                                                                            width="60" height="60" alt="Avatar"
-                                                                            class="avatar avatar-60 wp-user-avatar wp-user-avatar-60 photo avatar-default" />
-                                                                        <a href="author/afcode/index.html" title="">
-                                                                            <h4>afcode</h4>
-                                                                        </a>
-                                                                        <small></small>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="ts-spacer" style="height:20px"></div>
-                                                        <div class="ts-button-center"><a
-                                                                href="#"
-                                                                data-hoverback="rgb(255, 179, 0)"
-                                                                data-currentbg="rgba(255,255,255, 0)"
-                                                                data-currentbor="#ffffff" data-currentcolor="#ffffff"
-                                                                data-hovercolor="#ffffff"
-                                                                class="ts-button ts-button-style-standard"
-                                                                style="color:#ffffff;background:rgba(255,255,255, 0);border-color:#ffffff;border-radius:0px;-moz-border-radius:0px;-webkit-border-radius:0px"
-                                                                target="_self"><span
-                                                                    style="padding:0px 16px;font-size:13px;line-height:22px;border-color:#ffffff;border-radius:0px;-moz-border-radius:0px;-webkit-border-radius:0px;text-shadow:none;-moz-text-shadow:none;-webkit-text-shadow:none">VIEW
-                                                                    ALL AGENCIES </span></a></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    -->
+                                    
                                 </div>
                             </div>
                         </div>

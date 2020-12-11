@@ -60,7 +60,7 @@ section.section {
                         <div class="col-md-4 col-sm-6 wow fadein" data-wow-duration="1s" data-wow-delay="0.2s">
                             <div class="site-wrapper">
                                 <div class="award-image nominee-image entry">
-                                    <a href="{{url_for('nominee_category_detail', name=judge.name)}}">
+                                    <a href="{{url_for('organiser_category_detail', name=judge.name)}}">
                                         <img src="{{url_for('get_upload', filename=judge.image_url)}}"
                                                 
                                             alt="award_04"> </a>
@@ -68,7 +68,7 @@ section.section {
 
                                 <div class="site-small-desc clearfix">
                                     <div class="pul {l-left">
-                                        <a href="{{url_for('nominee_category_detail', name=judge.name)}}">
+                                        <a href="{{url_for('organiser_category_detail', name=judge.name)}}">
                                             <h4>{{judge.name}}</h4>
                                         </a>
                                     </div>

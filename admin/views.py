@@ -36,7 +36,7 @@ class ControllerView(ModelView):
     column_formatters = {
         "image_url": _image_formatter
     }
-    form_excluded_columns = ("image_url")
+    form_excluded_columns = ("image_url", "nominees", "award")
 
     # def is_accessible(self):
     #     # if User.query.all()
@@ -53,7 +53,7 @@ class ControllerView(ModelView):
 class NomineeController(ControllerView):
 
     form_extra_fields = {
-        'image': FileField('Nominee pic',validators=[FileAllowed(['jpg', 'png'], 'Images only!')])
+        'image': FileField('Nominee pic',validators=[FileAllowed(['jpg', 'png', 'jpeg'], 'Images only!')])
     }
 
     def update_model(self, form, model):
@@ -124,7 +124,7 @@ class NomineeController(ControllerView):
 class JudgesController(ControllerView):
 
     form_extra_fields = {
-        'image': FileField('Judge pic',validators=[FileAllowed(['jpg', 'png'], 'Images only!')])
+        'image': FileField('Judge pic',validators=[FileAllowed(['jpg', 'png', 'jpeg'], 'Images only!')])
     }
 
     def update_model(self, form, model):
@@ -179,6 +179,66 @@ class JudgesController(ControllerView):
 
             return model
 
+class AwardController(ControllerView):
+
+    form_extra_fields = {
+        'image': FileField('Award pic',validators=[FileAllowed(['jpg', 'jpeg','png'], 'Images only!')])
+    }
+
+    def update_model(self, form, model):
+        """
+            Update model from the form.
+
+            Returns `True` if operation succeeded.
+
+            Must be implemented in the child class.
+
+            :param form:
+                Form instance
+            :param model:
+                Model instance
+        """
+        # print("model =============== ", form.amount)
+        if form.data and form.validate:
+            model.name = form.name.data
+            model.category = form.category.data
+            model.description = form.description.data
+
+            if form.image.data:
+                path = imageHandler(form.image.data)
+                model.image_url = path
+
+
+            self.session.commit()
+
+            return True
+
+    def create_model(self, form):
+        """
+           Create model from the form.
+
+           Returns the model instance if operation succeeded.
+
+           Must be implemented in the child class.
+
+           :param form:
+               Form instance
+        """
+
+
+        if form.data and form.validate:
+            model = self.model()
+            path = imageHandler(form.image.data)
+            model.name = form.name.data
+            model.category = form.category.data
+            model.description = form.description.data
+            model.image_url = path
+
+            self.session.add(model)
+            self.session.commit()
+
+            return model
+
 
 
 
@@ -200,5 +260,6 @@ admin.add_view(ControllerView(AwardCategory, db.session))
 admin.add_view(ControllerView(BestJudgeWriteUp, db.session))
 admin.add_view(ControllerView(RecentNomineeWriteUp, db.session))
 admin.add_view(JudgesController(Judges, db.session))
+admin.add_view(AwardController(Awards, db.session))
 
 

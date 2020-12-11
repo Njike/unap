@@ -128,8 +128,9 @@ def index():
     judges = Judges.query.all()
     judges_text = BestJudgeWriteUp.query.first()
     nominee_text = RecentNomineeWriteUp.query.first()
+    awards = Awards.query.all()
     return render_template(
-        'index.html', winner=winner, nominees=nominees, judges=judges, judges_text=judges_text, nominee_text=nominee_text)
+        'index.html', winner=winner, nominees=nominees, judges=judges, judges_text=judges_text, nominee_text=nominee_text, awards=awards)
 
 @app.route("/about-us/")
 def about_us():
@@ -169,6 +170,14 @@ def winner():
     return render_template("award-winners/index.html")
 
 
+@app.route("/award/<string:name>/")
+def award_category_detail(name):
+    nominee = Awards.query.filter_by(name=name).first()
+    if nominee:
+        return render_template("nominee/papazian-jewelry/index.html", nominee=nominee)
+    else:
+        abort(404)
+
 
 
 
@@ -176,6 +185,15 @@ def winner():
 def agencies():
     judges = Judges.query.all()
     return render_template('agencies-freelancers/index.html', judges=judges)
+
+@app.route("/organiser/<string:name>/")
+def organiser_category_detail(name):
+    nominee = Judges.query.filter_by(name=name).first()
+    if nominee:
+        return render_template("nominee/papazian-jewelry/index.html", nominee=nominee)
+    else:
+        abort(404)
+
 
 
 @app.route("/support/")

@@ -70,6 +70,8 @@ class AwardCategory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(60), nullable=False)
     nominees = db.relationship("Nominees", backref="category")
+    award = db.relationship("Awards", backref="category")
+
 
     def __str__(self):
         return self.name
@@ -81,6 +83,9 @@ class Judges(db.Model):
     image_url = db.Column(db.String(225), nullable=False)
     description = db.Column(db.Text)
 
+    def __str__(self):
+        return self.name
+
 class BestJudgeWriteUp(db.Model):
     __tablename__ = "bestJudgeWriteUp"
     id = db.Column(db.Integer, primary_key=True)
@@ -90,3 +95,13 @@ class RecentNomineeWriteUp(db.Model):
     __tablename__ = "recentNomineeWritup"
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.Text)
+
+class Awards(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(40))
+    award_category = db.Column(db.Integer, db.ForeignKey('award_category.id'))
+    description = db.Column(db.Text)
+    image_url = db.Column(db.String(100), nullable=False)
+
+    def __str__(self):
+        return f"{self.name} ({self.category})"
