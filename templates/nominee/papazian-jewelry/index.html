@@ -19,10 +19,25 @@
                                         <img src="{{url_for('get_upload', filename=nominee.image_url)}}" alt="award_09">
                                         <div class="magnifier">
 
-                                                {% if nominee.__tablename__ != "judges"  %}
+
+                                                {% if nominee.__tablename__ == "nominees"  %}
+                                                {% if nominee.category %}
                                             <div class="magni-desc">
                                                 <h4>{{nominee.category}}</h4>
                                             </div>
+                                            {% endif %}
+
+
+                                            {% elif nominee.__tablename__ == "awards"  %}
+                                            <div class="magni-desc">
+                                                <h4>Award<h4>
+                                            </div>
+
+                                            {% elif nominee.__tablename__ == "judges"  %}
+                                            <div class="magni-desc">
+                                                <h4>Organiser<h4>
+                                            </div>
+
                                             {% endif %}
                                         </div><!-- end magnifier -->
                                     </a>
@@ -31,11 +46,7 @@
                                 <div class="site-single-share clearfix">
                                     <div class="pull-left">
                                         <ul class="list-inline software_version">
-
-                                                {% if nominee.__tablename__ != "judges"  %}
-                                            <li>Award for  {{nominee.category.name}}<i class="fa fa-tags"></i></li>
-
-                                            {% endif %}
+                                            
                                         </ul>
                                     </div><!-- end left -->
                                    

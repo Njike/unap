@@ -368,22 +368,31 @@
         
             {% endblock %}
         </section>
+
+        {% if donate.text %}
+
         <div class="section bb">
             <div class="container">
                 <div class="row callout">
                     <div id="siteorigin-panels-builder-1" class="footer-top-widget widget_siteorigin-panels-builder">
                         <div id="pl-w58444434f2c1f" class="panel-layout">
                             <div id="pg-w58444434f2c1f-0" class="panel-grid panel-no-style">
-                                <div id="pgc-w58444434f2c1f-0-0" class="panel-grid-cell">
+                                <div id="pgc-w58444434f2c1f-0-0" class="panel-grid-cell" style="width:100% !important;">
                                     <div id="panel-w58444434f2c1f-0-0-0"
                                         class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child"
                                         data-index="0">
                                         <div class="textwidget">
-                                            <h3 style="text-align: center;"><sup>$</sup>49.99</h3>
-                                            <h4 style="text-align: center;">Pro Submissions will be charged</h4>
+                                            <h4 style="text-align: center;font-size:2em;">{{donate.text}}</h4>
+                                            {% if donate.email %}
+                                            <h4 style="text-align: center;"><a href="mailto://{{donate.email}}">{{donate.email}}</a></h4>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
+
+
+                                {% if False %}
+
                                 <div id="pgc-w58444434f2c1f-0-1" class="panel-grid-cell">
                                     <div id="panel-w58444434f2c1f-0-1-0"
                                         class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child"
@@ -394,12 +403,17 @@
                                         </div>
                                     </div>
                                 </div>
+                                {% endif %} 
+
+
                             </div>
                         </div>
                     </div>
                 </div><!-- end row -->
             </div><!-- end container -->
         </div>
+        
+{% if False %}
         <div class="footer section">
             <div class="container">
 
@@ -439,7 +453,6 @@
                         </div>
                     </div>
 
-{% if False %}
 
                     <div class="col-md-2 col-sm-2 footer-widget-area">
                         <div id="nav_menu-2" class="widget widget_nav_menu">
@@ -489,11 +502,13 @@
                         </div>
                     </div>
 
-{% endif %}
                 </div>
 
             </div>
         </div>
+
+{% endif %}
+{% endif %}
         <div class="copyrights">
             <div class="container">
                 <div class="row">
@@ -502,14 +517,15 @@
                             <img src="{{url_for('static', filename='images/logo.png')}}" alt="Dark Layout">
                         </a>
                         <p>
-                            <p>2010 - 2017 ©Awards Graphic Design Solutions INC. All rights reserved.</p>
+                            <p> 2020 ©UNAPAwards. All rights reserved.</p>
                         </p>
-                        <ul class="list-inline">
-                            <li><a title="Facebook" target="_blank" href="#">Facebook</a></li>
-                            <li><a title="Twitter" target="_blank" href="#">Twitter</a></li>
-                            <li><a title="Google+" target="_blank" href="#">Google+</a></li>
-
-                        </ul>
+                        {% if socials %}
+                            <ul class="list-inline">
+                                {% for social in socials %}
+                                    <li><a title="{{social.name}}" target="_blank" href="{{social.link}}">{{social.name}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
                     </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end container -->

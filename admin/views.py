@@ -259,6 +259,8 @@ admin.add_view(NomineeController(Nominees, db.session))
 
 
 admin.add_view(ControllerView(AwardCategory, db.session))
+admin.add_view(ControllerView(Donate, db.session))
+admin.add_view(ControllerView(Social, db.session))
 admin.add_view(ControllerView(BestJudgeWriteUp, db.session))
 admin.add_view(ControllerView(RecentNomineeWriteUp, db.session))
 admin.add_view(JudgesController(Judges, db.session))

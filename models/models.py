@@ -109,3 +109,15 @@ class Awards(db.Model):
 
     def __str__(self):
         return f"{self.name} ({self.category})"
+
+class Donate(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.Text)
+    email = db.Column(db.String(80))
+
+
+
+class Social(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), nullable=False)
+    link = db.Column(db.String(255), nullable=False)

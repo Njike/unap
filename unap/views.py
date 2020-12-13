@@ -82,26 +82,9 @@ class PasswordResetForm(FlaskForm):
 
 @app.context_processor
 def g():
-#     site_detail = SiteDetails.query.first()
-#     user=User().user()
-#     if type(User().user()) == str:
-#         return {"current_user":None, "site_detail":site_detail, "date":datetime.now()}
-#     detail = {"deposits":[],"withdrawals":[],"pendingWithdrawals":[], "pendingDeposits":[]}
-#     transactions = Transaction.query.filter_by(wallet=user.wallet).all()
-#     for transaction in transactions:
-#         if transaction.is_deposit and transaction.is_successful:
-#             detail["deposits"].append(transaction.deposit.amount)
-#         elif transaction.is_withdrawal and transaction.is_successful:
-#             detail["withdrawals"].append(abs(transaction.withdrawal.amount))
-#         elif transaction.is_withdrawal and not transaction.is_successful:
-#             detail["pendingWithdrawals"].append(abs(transaction.withdrawal.amount))
-#         elif transaction.is_deposit and not transaction.is_successful:
-#             detail["pendingDeposits"].append(transaction.deposit.amount)
-
-
-
-#     return {"detail":detail,"site_detail":site_detail, "current_user":User().user(), "balance":round(Transaction.query.filter_by(wallet=User().user().wallet).first().balance(),6), "date":datetime.now()}
-    return {}
+    donate = Donate.query.first()
+    socials = Social.query.all()
+    return {"donate":donate, "socials":socials}
 
 
 
