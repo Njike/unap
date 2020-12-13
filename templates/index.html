@@ -383,8 +383,13 @@
                                                                                 <h4>{{nominee.name}}</h4>
                                                                             </a>
                                                                             {% if nominee.category %}
-                                                                            <p><a href="#"
-                                                                                      title="">{{nominee.category}}</a></p>
+                        <p><a title="{{nominee.category}}" href="#">
+                                            {% if nominee.category.name|length <= 20 %}
+                                            {{nominee.category}}
+                                            {% else %}
+                                            {{nominee.category.name[:20]}} &#8230;
+                                            {% endif %}
+                                        </a></p>
                                                                             {% endif %}
                                                                         </div>
                                                                         <div class="likebutton pull-right text-center">
