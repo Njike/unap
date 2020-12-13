@@ -121,3 +121,15 @@ class Social(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), nullable=False)
     link = db.Column(db.String(255), nullable=False)
+
+
+class JudgesReplacement(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70), nullable=False)
+    image_url = db.Column(db.String(225), nullable=False)
+    description = db.Column(db.Text)
+
+    def __str__(self):
+        return self.name
+
+

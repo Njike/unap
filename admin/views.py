@@ -179,6 +179,66 @@ class JudgesController(ControllerView):
 
             return model
 
+class JudgesReplacementController(ControllerView):
+
+    form_extra_fields = {
+        'image': FileField('Judge pic',validators=[FileAllowed(['jpg', 'png', 'jpeg'], 'Images only!')])
+    }
+
+    def update_model(self, form, model):
+        """
+            Update model from the form.
+
+            Returns `True` if operation succeeded.
+
+            Must be implemented in the child class.
+
+            :param form:
+                Form instance
+            :param model:
+                Model instance
+        """
+        # print("model =============== ", form.amount)
+        if form.data and form.validate:
+            model.name = form.name.data
+            model.description = form.description.data
+
+            if form.image.data:
+                path = imageHandler(form.image.data)
+                model.image_url = path
+
+
+            self.session.commit()
+
+            return True
+
+    def create_model(self, form):
+        """
+           Create model from the form.
+
+           Returns the model instance if operation succeeded.
+
+           Must be implemented in the child class.
+
+           :param form:
+               Form instance
+        """
+
+
+        if form.data and form.validate:
+            model = self.model()
+            path = imageHandler(form.image.data)
+            model.name = form.name.data
+            model.description = form.description.data
+            model.image_url = path
+
+            self.session.add(model)
+            self.session.commit()
+
+            return model
+
+
+
 class AwardController(ControllerView):
 
     form_extra_fields = {
@@ -258,6 +318,7 @@ admin.add_view(NomineeController(Nominees, db.session))
 
 
 
+admin.add_view(JudgesReplacementController(JudgesReplacement, db.session))
 admin.add_view(ControllerView(AwardCategory, db.session))
 admin.add_view(ControllerView(Donate, db.session))
 admin.add_view(ControllerView(Social, db.session))
