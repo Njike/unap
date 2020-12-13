@@ -28,13 +28,18 @@
                                         <a href="{{url_for('nominee_category_detail', name=nominee.name)}}">
                                             <h4>{{nominee.name}}</h4>
                                         </a>
-                                        <p><a title="{{nominee.category}}" href="#">
+
+                                        <p>
+                                        {% if nominee.category %}
+                                        <a title="{{nominee.category}}" href="#">
                                             {% if nominee.category.name|length <= 30 %}
                                             {{nominee.category}}
                                             {% else %}
                                             {{nominee.category.name[:30]}} &#8230;
                                             {% endif %}
-                                        </a></p>
+                                        </a>
+                                        {% endif %}
+                                        </p>
                                         
                                     </div>
                                     <!--
