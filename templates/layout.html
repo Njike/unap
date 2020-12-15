@@ -282,11 +282,13 @@
         <header class="header">
             <nav class="navbar navbar-default">
                 <div class="container-header">
+                    {% if False %}
                     <div class="navbar-header">
                         <a class="visible-sec navbar-brand" href="index.html" title="Dark Layout">
                             <img src="{{url_for('static', filename='images/logo.png')}}" alt="Dark Layout">
                         </a>
                     </div>
+                    {% endif %}
                     <!-- end navbar header -->
                     <div class="hidden-sec slim-wrap"
                          data-image="{{url_for('static', filename='images/logo.png')}}"
@@ -505,9 +507,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 text-center">
+                        {% if False %}
                         <a href="{{url_for('index')}}" title="Dark Layout">
                             <img src="{{url_for('static', filename='images/logo.png')}}" alt="Dark Layout">
                         </a>
+                        {% endif %}
                         <p>
                             <p> 2020 ©UNAPAwards. All rights reserved.</p>
                         </p>

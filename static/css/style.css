@@ -3221,6 +3221,9 @@ RESPONSIVE
         padding: 30px;
     }
 
+    #pgc-57-1-0 h3{
+        font-size: 28px !important;
+    }
     .archive_list li {
         width: 10%;
     }
